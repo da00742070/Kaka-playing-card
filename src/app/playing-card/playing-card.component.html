@@ -1,0 +1,24 @@
+<header>
+    <section class="header-top">
+        <h1>Kaka Playing Card</h1>
+    </section>
+</header>
+<section class="InnerSection">
+    <button class="btn btn-reset" (click)="ResetDeck()">Reset Deck</button>
+    <button class="btn btn-success" (click)="DrawCard()" [disabled]="IsDisable">Draw a card</button>
+
+    <div class="ShowCard" *ngIf="IsDeck">
+        <h2>Remaining - {{ShowRemaining}}</h2>
+        <img src="{{ShowCard}}" *ngIf="IsDeck && !LoaderCondition && !EmptyMsg">
+        <div class="loadertop" *ngIf="LoaderCondition">
+            <div class="loader"></div>
+        </div>
+        <div class="errormsg" *ngIf="EmptyMsg">The deck is empty, please reset the deck</div>
+    </div>
+    <div id="snackbar" [class.show]="Isshow">New shuffled deck</div>
+</section>
+<footer>
+    <section class="footer">
+        <h2> Kaka Playing Card © {{Year}}</h2>
+    </section>
+</footer>
